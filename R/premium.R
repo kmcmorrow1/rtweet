@@ -83,7 +83,7 @@
 #'
 #' @export
 #' @references <https://developer.twitter.com/en/docs/twitter-api/premium/search-api/api-reference/premium-search>
-search_fullarchive <- function(q, n = 100, fromDate = NULL, toDate = NULL,
+search_fullarchive <- function(q, n = 500, fromDate = NULL, toDate = NULL,
   env_name = NULL, safedir = NULL, parse = TRUE, token = NULL) {
 
   search_premium("fullarchive", 
@@ -101,7 +101,7 @@ search_fullarchive <- function(q, n = 100, fromDate = NULL, toDate = NULL,
 
 #' @rdname search_fullarchive
 #' @export
-search_30day <- function(q, n = 100, fromDate = NULL, toDate = NULL,
+search_30day <- function(q, n = 500, fromDate = NULL, toDate = NULL,
                           env_name = NULL, safedir = NULL,
                           parse = TRUE,
                           token = NULL) {
@@ -119,7 +119,7 @@ search_30day <- function(q, n = 100, fromDate = NULL, toDate = NULL,
 }
 
 
-search_premium <- function(product, q, n = 100, fromDate = NULL, toDate = NULL,
+search_premium <- function(product, q, n = 400, fromDate = NULL, toDate = NULL,
                           env_name = NULL, safedir = NULL,
                           parse = TRUE,
                           token = NULL) {
@@ -142,7 +142,7 @@ search_premium <- function(product, q, n = 100, fromDate = NULL, toDate = NULL,
     get_id = function(x) x$statuses$id_str,
     max_id = max_id,
     n = n,
-    page_size = if (env_name == "sandbox") 100 else 500, 
+    page_size = 500, 
     count_param = "maxResults"
   )
 
